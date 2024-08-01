@@ -1,15 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
+import ChatHome from '../components/Chat.astro';
 
-import Home from '../components/Home.astro';
 ---
 
 <Layout title="Instragram Clone">
   <div class="flex flex-col h-screen">
     <NavBar />
     <div class="flex-1 overflow-y-auto" id="scrollable-content">
-      <Home/>
+      <ChatHome/>
     </div>
+
   </div>
 </Layout>
+
+

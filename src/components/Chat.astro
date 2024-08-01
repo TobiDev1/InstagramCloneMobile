@@ -1,0 +1,67 @@
+---
+const user_chats = [
+  { name: 'midudev', image: '/midudev.jpeg', lastMessage: 'Instagram UI Mobile Clone👍', time: '2h', unread: true, verified: true},
+  { name: 'mouredev', image: '/mouredev.jpeg', lastMessage: '🔥', time: '3h', verified: true, unread: true},
+  { name: 'elrincondeldev', image: '/elrincondeldev.jpeg', lastMessage: 'Instagram UI Clone!🔥', time: '5h', verified: true, unread: true },
+  { name: 'sapagamer', image: '/sapagamer.jpeg', lastMessage: '😎', time: '1d', verified: true },
+];
+
+const account_verify = `<svg aria-label="Verified" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="12" role="img" viewBox="0 0 40 40" width="12"><title>Verified</title><path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path></svg>`;
+---
+
+<div id="container" class="fixed inset-0 bg-gray-900 text-white transition-transform duration-300 ease-in-out">
+  <header class="flex justify-between items-center px-4 py-2 border-b border-gray-700">
+    <button class="text-blue-400" id="backButton">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <h1 class="text-lg font-semibold">TobiDev</h1>
+    <button class="text-blue-400">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+    </button>
+  </header>
+
+  <div class="px-4 py-2">
+    <div class="relative">
+      <input type="text" placeholder="Search" class="w-full bg-gray-800 text-white rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="mt-2">
+    {user_chats.map((chat) => (
+      <div class="flex items-center px-4 py-3 hover:bg-gray-800">
+        <img src={chat.image} alt={chat.name} class="w-12 h-12 rounded-full object-cover" />
+        <div class="ml-3 flex-1">
+          <div class="flex justify-between items-baseline">
+            <span class="font-semibold text-sm flex items-center">
+              {chat.name}
+              {chat.verified && <span class="ml-1" set:html={account_verify} />}
+            </span>
+            <span class="text-xs text-gray-400">{chat.time}</span>
+          </div>
+          <p class="text-sm text-gray-400 truncate">{chat.lastMessage}</p>
+        </div>
+        {chat.unread && <div class="w-2 h-2 bg-blue-500 rounded-full"></div>}
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+    document.getElementById('backButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      const container = document.getElementById('container');
+      container.classList.add('slide-out');
+      
+      setTimeout(() => {
+        window.location.href = '/';
+    
+      }, 300); 
+    });
+  </script>

@@ -1,0 +1,58 @@
+---
+import PostHome from "./posts/PostHome.astro";
+const stories = [
+  { name: 'Your story', image: '/tobidev.jpeg' },
+  { name: 'midudev', image: '/midudev.jpeg', verified: true },
+  { name: 'mouredev', image: '/mouredev.jpeg', verified: true },
+  { name: 'elrincondeldev', image: '/elrincondeldev.jpeg', verified: true },
+  { name: 'sapagamer', image: '/sapagamer.jpeg', verified: true },
+];
+
+let account_verify = `<svg aria-label="Verified" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="12" role="img" viewBox="0 0 40 40" width="12"><title>Verified</title><path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path></svg>`;
+---
+
+<div class="bg-gray-900 text-white min-h-screen">
+  
+  <header class="flex justify-between items-center px-4 py-2">
+    <h1 class="text-2xl font-bold">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶 𝓤𝓘</h1>
+    <div class="flex space-x-4">
+      <button class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      </button>
+      <button class="text-white" onclick=`location.href="/Chat"`>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19l9 2 9-18-18 9 9 3v4" />
+        </svg>
+      </button>
+      
+    </div>
+  </header>
+
+  <div class="px-4 py-2">
+    
+    <div class="flex space-x-4 overflow-x-auto pb-2">
+      {stories.map(({ name, image, verified }, index) => (
+        <div class="flex flex-col items-center">
+          <div class={`w-16 h-16 rounded-full border-2 p-0.5 relative ${index === 0 ? 'border-gray-400' : 'border-pink-500'}`}>
+            <img src={image} alt={name} class="w-full h-full rounded-full object-cover" />
+            {index === 0 && (
+              <div class="absolute bottom-0 right-0 bg-blue-500 rounded-full w-5 h-5 flex items-center justify-center">
+                <span class="text-white text-xs font-bold">+</span>
+              </div>
+            )}
+          </div>
+          <span class="text-xs mt-1 truncate w-17 text-center flex items-center justify-center">
+            {name}
+            {verified && <span class="ml-1" set:html={account_verify} />}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <PostHome/>
+  
+  <div class="text-transparent mt-12 h-24"></div>
+</div>

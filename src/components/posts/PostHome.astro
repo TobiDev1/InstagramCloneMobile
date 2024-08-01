@@ -1,0 +1,73 @@
+---
+const posts = [
+  { id: 1, username: 'TobiDev', img_profile: '/tobidev.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and others', caption: 'Instagram Clone UI Mobile.', verified: false },
+  { id: 2, username: 'MiduDev', img_profile: '/midudev.jpeg', img_post: '/favicon.svg', likes: 'MoureDev and TobiDev...', caption: 'Instagram Clone UI Mbile.', verified: true},
+  { id: 3, username: 'mouredev', img_profile: '/mouredev.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and TobiDev...', caption: 'Instagram Clone UI Mobie.', verified: true},
+  { id: 4, username: 'elrincondeldev', img_profile: '/elrincondeldev.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and others', caption: 'Instagram Clone UI Mobile.', verified: true},
+  { id: 5, username: 'sapagamer', img_profile: '/sapagamer.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and others', caption: 'Instagram Clone UI Mobile.', verified: true},
+  { id: 6, username: 'TobiDev', img_profile: '/tobidev.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and others', caption: 'Instagram Clone UI Mobile.', verified: false},
+  { id: 7, username: 'MiduDev', img_profile: '/midudev.jpeg', img_post: '/favicon.svg', likes: 'MoureDev and TobiDev...', caption: 'Instagram Clone UI Mbile.', verified: true},
+  { id: 8, username: 'mouredev', img_profile: '/mouredev.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and TobiDev...', caption: 'Instagram Clone UI Mobie.', verified: true},
+  { id: 9, username: 'elrincondeldev', img_profile: '/elrincondeldev.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and others', caption: 'Instagram Clone UI Mobile.', verified: true},
+  { id: 10, username: 'sapagamer', img_profile: '/sapagamer.jpeg', img_post: '/favicon.svg', likes: 'MiduDev and others', caption: 'Instagram Clone UI Mobile.', verified: false },
+]
+
+
+
+let account_verify = `<svg aria-label="Verified" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="12" role="img" viewBox="0 0 40 40" width="12"><title>Verified</title><path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z" fill-rule="evenodd"></path></svg>`;
+
+
+
+---
+
+
+{posts.map((post, index) => (
+  <div class="bg-gray-950 mb-4">
+    <div class="px-4 py-3">
+      <div class="flex items-center">
+        <img src={post.img_profile} alt={post.username} class="w-8 h-8 rounded-full object-cover" />
+        <span class="font-semibold ml-2 text-white flex items-center">
+          {post.username}
+          {post.verified && <span class="ml-1" set:html={account_verify} />}
+        </span>
+      </div>
+    </div>
+    <img src={post.img_post} alt="Post" class="w-full aspect-square object-cover" />
+    <div class="px-4 py-3">
+      <div class="flex space-x-4 mb-3">
+        <button class="like-button" data-index={index}>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>  
+        </button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+        </svg>
+      </div>
+      <p class="font-semibold text-white">Liked by {post.likes}</p>
+      <p class="text-white"><span class="font-semibold">{post.username} &nbsp;</span> {post.caption}</p>
+    </div>
+  </div>
+))}
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const likeButton = document.querySelectorAll(".like-button");
+      
+      likeButton.forEach((button) => {
+        let isLiked = false;
+        
+        button.addEventListener("click", () => {
+          isLiked = !isLiked;
+          const svg = button.querySelector('svg');
+          if (svg) {
+            svg.style.fill = isLiked ? "red" : "none";
+            svg.style.color = isLiked ? "red" : "white";
+          }
+        });
+      });
+    });
+  </script>

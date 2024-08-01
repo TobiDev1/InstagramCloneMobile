@@ -22,7 +22,14 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	.overflow-y-auto {
+  body {
+	background-color: rgb(17 24 39);
+  }
+  
+  .slide-out {
+    transform: translateX(100%);
+  }
+  .overflow-y-auto {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
   }
