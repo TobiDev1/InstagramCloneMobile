@@ -1,54 +1,71 @@
-# Astro Starter Kit: Basics
+# 📸 Instagram UI Clone Static
 
-```sh
-npm create astro@latest -- --template basics
-```
+A sleek and modern Instagram UI clone built with Astro and Tailwind CSS, inspired by Google Images and Figma designs.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🚀 Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- 🏠 Home feed with stories and posts
+- 💬 Chat interface
+- 👤 User profile page
+- 📱 Mobile-first responsive design
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🛠️ Technologies Used
 
-## 🚀 Project Structure
+- [Astro](https://astro.build/) - Fast, content-focused web framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Capacitor](https://capacitorjs.com/) - For native mobile app builds
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🎨 Design Inspiration
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Google Images
+- Figma Instagram UI designs
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🚀 Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
+4. Open `http://localhost:4321` in your browser
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📦 Building for Production
 
-## 🧞 Commands
+- bash
+- npm run build
 
-All commands are run from the root of the project, from a terminal:
+## 📱 Mobile App Build
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- bash
+- npx cap add android
+- npx cap sync
+- npx cap run android
 
-## 👀 Want to learn more?
+  
+## 🌟 Future Enhancements
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [ ] Dark mode toggle
+- [ ] Reels functionality
+- [ ] Direct messaging
+- [ ] Explore page
+- [ ] Story creation
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! We encourage you to create pull requests for any improvements or new features you'd like to add.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/YourFeatureName`)
+3. Commit your changes (`git commit -m 'Add YourFeatureName'`)
+4. Push to the branch (`git push origin feature/YourFeatureName`)
+5. Open a pull request to the [InstagramCloneMobile repository](https://github.com/TobiDev1/InstagramCloneMobile/)
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate and follow the project's code style.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/TobiDev1/InstagramCloneMobile/blob/main/LICENSE) file for details.
+
+---
+
+Made with ❤️ by [TobiDev](https://github.com/TobiDev1)
